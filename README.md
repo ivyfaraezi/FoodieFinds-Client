@@ -1,32 +1,50 @@
-# HabitForge - Daily Habit Tracker 🎯
+# FoodieFinds - Local Food Lovers Network 🍽️
 
-Build lasting habits, track your progress, and achieve your goals with HabitForge - your ultimate companion for personal development.
+Discover, review, and share your favorite local food experiences. FoodieFinds connects food lovers with honest community-driven reviews to help you find hidden culinary gems near you.
 
 ## 🌐 Live Site URL
 
-**[HabitForge](https://habitforge-tracker.web.app)**
+**[FoodieFinds](https://foodiefinds-450ce.web.app)**
 
 ---
 
 ## ✨ Key Features
 
-- **🔥 Streak Tracking**: Build and maintain daily streaks to stay motivated. Watch your consistency grow as you complete habits day after day. Earn badges for reaching streak milestones (7, 14, 30, 50, 100 days).
+- **🍔 Food Review System**: Write detailed food reviews with star ratings, food images, restaurant names, and location info — share your dining experience with the community.
 
-- **📊 Progress Analytics**: Visualize your habit completion with detailed progress bars showing your 30-day completion rate. Track total completions and see your improvement over time.
+- **🔍 Search Reviews**: Find specific food reviews by keyword search across food names, restaurant names, and review content.
 
-- **🎨 Beautiful, Responsive UI**: Modern, clean interface with dark/light mode support. Fully responsive design that works seamlessly on desktop, tablet, and mobile devices.
+- **❤️ Favorites / Watchlist**: Save reviews you love to your personal favorites list for quick access later. Easily manage and remove favorites.
 
-- **🔐 Secure Authentication**: Firebase-powered authentication with email/password and Google sign-in options. Password validation ensures account security.
+- **📝 My Reviews Dashboard**: View, edit, and manage all the reviews you've posted from a dedicated dashboard page.
 
-- **🌍 Public Habit Discovery**: Browse public habits from the community, get inspired by others, and share your own habits to motivate fellow users.
+- **✏️ Update & Delete Reviews**: Full CRUD functionality — update your existing reviews or remove them when needed.
 
-- **⚡ Real-time Updates**: Instant UI updates when marking habits complete. See your streaks and progress update immediately without page refresh.
+- **🔐 Secure Authentication**: Firebase-powered login with email/password and Google sign-in. Protected routes ensure only authenticated users can add reviews, manage favorites, and access private pages.
 
-- **🎬 Smooth Animations**: Engaging Framer Motion animations throughout the app, including celebration confetti when completing habits.
+- **🌗 Dark / Light Mode**: Toggle between dark and light themes with a smooth transition. Theme preference persists across sessions.
 
-- **🔍 Smart Search & Filter**: Easily find habits with category-based filtering (Morning, Work, Fitness, Evening, Study) and keyword search functionality.
+- **🎬 Smooth Animations**: Framer Motion animations on page transitions, cards, and interactive elements for a polished user experience.
 
-- **📱 PWA Ready**: Installable as a Progressive Web App for a native-like experience on any device.
+- **🎠 Hero Slider**: Eye-catching Swiper-powered hero banner with autoplay and fade effects showcasing food imagery.
+
+- **📱 Fully Responsive**: Clean, modern UI built with Tailwind CSS that works seamlessly on desktop, tablet, and mobile devices.
+
+---
+
+## 📄 Pages & Routes
+
+| Route                | Access  | Description                                                                  |
+| -------------------- | ------- | ---------------------------------------------------------------------------- |
+| `/`                  | Public  | Home page with hero slider, featured reviews, how it works, and testimonials |
+| `/all-reviews`       | Public  | Browse all food reviews with search functionality                            |
+| `/review/:id`        | Public  | Detailed view of a single review                                             |
+| `/login`             | Public  | User login page                                                              |
+| `/register`          | Public  | User registration page                                                       |
+| `/add-review`        | Private | Submit a new food review                                                     |
+| `/my-reviews`        | Private | View and manage your posted reviews                                          |
+| `/update-review/:id` | Private | Edit an existing review                                                      |
+| `/my-favorites`      | Private | View your saved favorite reviews                                             |
 
 ---
 
@@ -34,19 +52,20 @@ Build lasting habits, track your progress, and achieve your goals with HabitForg
 
 ### Frontend
 
-- React 18 with Vite
-- Tailwind CSS for styling
-- Framer Motion for animations
-- React Router DOM for routing
-- Firebase Authentication
-- Axios for API calls
-- Swiper for carousels
-- React Hot Toast & SweetAlert2 for notifications
-- Lottie React for animated icons
-- React Tooltip for hover info
-- React Simple Typewriter for text effects
-- Recharts for data visualization
-- React Helmet Async for SEO
+- **React 18** with **Vite** for fast development and builds
+- **Tailwind CSS** for utility-first responsive styling
+- **Framer Motion** for smooth animations and transitions
+- **React Router DOM v6** for client-side routing with protected routes
+- **Firebase Authentication** (Email/Password + Google sign-in)
+- **Axios** for HTTP API requests
+- **Swiper** for hero slider / carousel
+- **React Hot Toast** & **SweetAlert2** for toast notifications and alerts
+- **React Icons** for icon library
+- **Lottie React** for animated illustrations
+- **React Tooltip** for hover tooltips
+- **React Simple Typewriter** for typewriter text effects
+- **Recharts** for data visualization charts
+- **React Helmet Async** for dynamic page titles and SEO
 
 ### Backend
 
@@ -57,23 +76,30 @@ Build lasting habits, track your progress, and achieve your goals with HabitForg
 
 ---
 
-## 📦 Installation
+## 📦 Getting Started
 
-### Client Setup
+### Prerequisites
 
-```bash
-cd client
-npm install
-# Create .env file with Firebase config
-npm run dev
-```
+- Node.js (v18+)
+- npm or yarn
+- A Firebase project with Authentication enabled
+- Backend server running (see server repo)
 
-### Server Setup
+### Installation
 
 ```bash
-cd server
+# Clone the repository
+git clone https://github.com/ivyfaraezi/FoodieFinds-Client.git
+
+# Navigate to the project
+cd FoodieFinds-Client
+
+# Install dependencies
 npm install
-# Create .env file with MongoDB URI
+
+# Create a .env file in the root (see below)
+
+# Start the development server
 npm run dev
 ```
 
@@ -81,24 +107,31 @@ npm run dev
 
 ## 🔑 Environment Variables
 
-### Client (.env)
+Create a `.env` file in the project root with the following variables:
 
 ```
-VITE_FIREBASE_API_KEY=your_api_key
-VITE_FIREBASE_AUTH_DOMAIN=your_auth_domain
-VITE_FIREBASE_PROJECT_ID=your_project_id
-VITE_FIREBASE_STORAGE_BUCKET=your_storage_bucket
-VITE_FIREBASE_MESSAGING_SENDER_ID=your_sender_id
-VITE_FIREBASE_APP_ID=your_app_id
-VITE_API_URL=https://habit-forge-server.vercel.app
-VITE_IMGBB_API_KEY=your_imgbb_key
+VITE_FIREBASE_API_KEY=your_firebase_api_key
+VITE_FIREBASE_AUTH_DOMAIN=your_firebase_auth_domain
+VITE_FIREBASE_PROJECT_ID=your_firebase_project_id
+VITE_FIREBASE_STORAGE_BUCKET=your_firebase_storage_bucket
+VITE_FIREBASE_MESSAGING_SENDER_ID=your_firebase_messaging_sender_id
+VITE_FIREBASE_APP_ID=your_firebase_app_id
+VITE_API_URL=your_backend_api_url
 ```
 
-### Server (.env)
+---
 
-```
-MONGODB_URI=your_mongodb_uri
-PORT=5000
+## 📦 Build & Deployment
+
+```bash
+# Build for production
+npm run build
+
+# Preview the production build
+npm run preview
+
+# Deploy to Firebase Hosting
+firebase deploy
 ```
 
 ---
